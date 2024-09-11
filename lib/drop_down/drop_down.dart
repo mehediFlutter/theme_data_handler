@@ -16,27 +16,32 @@ class _DropDownState extends State<DropDown> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Center(
-          child: DropdownButtonFormField(
-            hint: Text("select",style: TextStyle(fontSize: 15),),
-            padding: EdgeInsets.only(top: 5,bottom: 10),
-              decoration: InputDecoration(
+        child: Column(
+          children: [
+            DropdownButtonFormField(
+              hint: Text("select",style: TextStyle(fontSize: 15),),
+              padding: EdgeInsets.only(top: 5,bottom: 10),
+                decoration: InputDecoration(
+                  
                 
-              
-        contentPadding: EdgeInsets.only(bottom: 5),
-        border: OutlineInputBorder(),
-      ),
-            items: myItem.map((String ?item) {
-              return DropdownMenuItem(value: item, child: Text(item.toString(),style: TextStyle(fontSize: 20),));
-            }).toList(),
-            onChanged: (String ?newValue) {
-              setState(() {
-                dropdownValue = newValue.toString();
-                print(dropdownValue);
-              });
-            }, value: dropdownValue,
-          
-          ),
+                  contentPadding: EdgeInsets.only(bottom: 5),
+                  border: OutlineInputBorder(),
+                ),
+              items: myItem.map((String ?item) {
+                return DropdownMenuItem(value: item, child: Text(item.toString(),style: TextStyle(fontSize: 20),));
+              }).toList(),
+              onChanged: (String ?newValue) {
+                setState(() {
+                  dropdownValue = newValue.toString();
+                  print(dropdownValue);
+                });
+              }, value: dropdownValue,
+            
+            ),
+            Spacer(),
+            ElevatedButton(onPressed: (){}, child: Text("Upload Image")),
+            
+          ],
         ),
       ),
     );
